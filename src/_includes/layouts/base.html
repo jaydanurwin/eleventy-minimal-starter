@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/global.css" />
-
     <link rel="icon" href="/assets/favicon.svg" />
+
+    {% inlinecss 'global.css' %}
+
     <!-- Primary Meta Tags -->
     <title>{{ title or metadata.title }}</title>
     <meta name="title" content="{{ title or metadata.title }}" />
@@ -65,10 +66,15 @@
         type="text/css"
       />
     </noscript>
+    {% block head %}{% endblock %}
   </head>
   <body>
     <!-- <header></header> -->
-    <main>{{ content | safe }}</main>
+    <main>
+      {% block content %}
+        {{ content | safe }}
+      {% endblock %}
+    </main>
     <!-- <footer></footer> -->
   </body>
 </html>

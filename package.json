@@ -9,7 +9,7 @@
     "clean": "rm -rf _site",
     "watch": "eleventy --watch",
     "serve": "eleventy --serve",
-    "start": "eleventy --serve",
+    "start": "cross-env ELEVENTY_ENV=dev eleventy --serve",
     "debug": "DEBUG=* eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +25,9 @@
   },
   "homepage": "https://github.com/jaydanurwin/eleventy-minimal-starter#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.0",
+    "clean-css": "^5.2.4",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0"
   }
 }
